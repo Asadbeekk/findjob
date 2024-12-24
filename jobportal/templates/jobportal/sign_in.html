@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head>
+    <link rel="stylesheet" href="../../static/jobportal/sign_in.css">
+<body class="bg-light">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="sign_in_card card p-4 shadow-sm">
+        <h1 class="text-center mb-4">Sign In</h1>
+
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Email</label>
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+            <div class="mb-3">
+                <label for="id_password" class="form-label">Password</label>
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+             <button class="btn btn-success w-100" type="submit">Sign In</button>
+        </form>
+        <a href="{% url 'sign-up' %}"><button class="mt-2 w-100 btn">Sign Up</button></a>
+    </div>
+</div>
+
+</body>
+</html>
